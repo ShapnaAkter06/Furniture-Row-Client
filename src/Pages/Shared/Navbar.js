@@ -13,11 +13,9 @@ const Navbar = () => {
     }
 
     const menuItem = <>
-        <li><Link to='/home'>Home</Link></li>
-
-
-
+        <li><Link to='/'>Home</Link></li>
     </>
+    
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -29,7 +27,7 @@ const Navbar = () => {
                         {menuItem}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">FURNITURE ROW</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

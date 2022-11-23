@@ -3,7 +3,7 @@ import error from '../../assets/errorpage.gif'
 
 const ErrorPage = () => {
     return (
-        <div>
+        <div className='flex justify-center h-screen'>
             <img src={error} alt="" />
         </div>
     );
