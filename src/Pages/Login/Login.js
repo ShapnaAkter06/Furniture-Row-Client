@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -61,6 +62,12 @@ const Login = () => {
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm bg-gray-500 text-white">Sign in</button>
                 </form>
+
+                <div className="divider">OR</div>
+                
+                <div className='flex justify-center'>
+                    <SocialLogin></SocialLogin>
+                </div>
 
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
                     <Link to='/signup' className="underline dark:text-gray-100">Sign up</Link>

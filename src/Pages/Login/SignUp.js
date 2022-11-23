@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -17,7 +18,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('User created successfully')
-                
+
                 //update user profile
                 updateUserProfile(data.name, data.email)
                     .then(() => { })
@@ -75,6 +76,12 @@ const SignUp = () => {
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm bg-gray-500 text-white">Sign in</button>
                 </form>
+                
+                <div className="divider">OR</div>
+
+                <div className='flex justify-center'>
+                    <SocialLogin></SocialLogin>
+                </div>
 
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account?
                     <Link to='/login' className="underline dark:text-gray-100">Login</Link>
