@@ -8,14 +8,14 @@ const Navbar = () => {
     //Logout
     const handleLogOut = () => {
         logout()
-        .then(()=>{})
-        .catch(err => console.log(err))
+            .then(() => { })
+            .catch(err => console.log(err))
     }
 
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
     </>
-    
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -37,7 +37,9 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user?.uid ?
-                        <button onClick={handleLogOut} className='btn btn-outline'>Logout</button> :
+                        <Link to='/login'>
+                            <button onClick={handleLogOut} className='btn btn-outline'>Logout</button></Link>
+                        :
                         <Link to='/login'>
                             <button className='btn btn-outline'>Login</button>
                         </Link>

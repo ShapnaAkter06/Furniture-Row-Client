@@ -1,23 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
-    const [signUpError, setSignUpError] = useState('')
+    const [signUpError, setSignUpError] = useState('');
+
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
 
     const handleSignUp = data => {
         setSignUpError('')
         //create user
         createUser(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
-                toast.success('User created successfully')
+                toast.success('User created successfully');
+                navigate(from, { replace: true });
 
                 //update user profile
                 updateUserProfile(data.name, data.email)
