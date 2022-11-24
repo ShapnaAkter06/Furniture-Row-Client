@@ -24,7 +24,7 @@ const SignUp = () => {
                 navigate(from, { replace: true });
 
                 //update user profile
-                updateUserProfile(data.name, data.email)
+                updateUserProfile(data.name)
                     .then(() => { })
                     .catch(err => console.log(err))
             })
