@@ -17,9 +17,7 @@ const SingleCard = ({ detail }) => {
                         <p className="dark:text-gray-100">Location: {location}</p>
                         <p className="dark:text-gray-100">Seller_name: {seller_name}</p>
                     </div>
-                    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900">
-                        Book Now
-                    </button>
+                    <label htmlFor="bookingModal" className="btn btn-success">Book Now</label>
                 </div>
             </div>
         </div>
