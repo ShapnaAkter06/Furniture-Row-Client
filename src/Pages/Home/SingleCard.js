@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleCard = ({ detail }) => {
+const SingleCard = ({ detail, setBookFurniture }) => {
     console.log(detail);
     const { category_id, image, location, original_price, published_date, resale_Price, seller_name, title, used_time, verified_seller, _id } = detail;
     return (
@@ -17,7 +17,12 @@ const SingleCard = ({ detail }) => {
                         <p className="dark:text-gray-100">Location: {location}</p>
                         <p className="dark:text-gray-100">Seller_name: {seller_name}</p>
                     </div>
-                    <label htmlFor="bookingModal" className="btn btn-success">Book Now</label>
+                    <label
+                        onClick={() => setBookFurniture(detail)}
+                        htmlFor="bookingModal"
+                        className="btn btn-success">
+                        Book Now
+                    </label>
                 </div>
             </div>
         </div>

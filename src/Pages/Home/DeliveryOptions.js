@@ -34,7 +34,7 @@ const DeliveryOptions = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-green-100 px-4 mb-12'>
                 {
-                    DeliveryCards.map(card => <DeliveryOption
+                    DeliveryCards?.map(card => <DeliveryOption
                         key={card.id}
                         card={card}
                     ></DeliveryOption>)
