@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SingleCard = ({ detail, setBookFurniture }) => {
-    console.log(detail);
     const { category_id, image, location, original_price, published_date, resale_Price, seller_name, title, used_time, verified_seller, _id } = detail;
     return (
         <div>
