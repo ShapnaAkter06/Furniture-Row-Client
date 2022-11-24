@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
+import DashBoard from "../Pages/DashBoard/DashBoard";
 import CategoryCard from "../Pages/Home/CategoryCard";
 import CategoryDetails from "../Pages/Home/CategoryDetails";
 import Home from "../Pages/Home/Home";
@@ -36,5 +37,9 @@ export const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:5000/allCategories/${params.id}`)
             },
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashBoard></DashBoard>
     }
 ])
