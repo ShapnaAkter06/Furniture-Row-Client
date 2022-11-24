@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CategoryCard = ({ category }) => {
-    const { name, image } = category;
-    console.log(category);
+    const { name, image, category_id } = category;
+    // console.log(category);
+    const allCategories = useLoaderData();
+    console.log(allCategories);
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -10,7 +13,9 @@ const CategoryCard = ({ category }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <div className="card-actions">
-                    <button className="btn btn-primary block w-full">{name}</button>
+                    <Link to={`/allCategories/${category_id}`}>
+                        <button className="btn btn-primary block w-full">{name}</button>
+                    </Link>
                 </div>
             </div>
         </div>
