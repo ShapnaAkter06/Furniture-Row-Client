@@ -3,17 +3,23 @@ import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmail);
     const [signUpError, setSignUpError] = useState('');
 
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
+    if (token) {
+        navigate('/');
+    }
 
 
     const handleSignUp = data => {
@@ -35,6 +41,7 @@ const SignUp = () => {
             })
     }
 
+    //save user in DB
     const saveUser = (name, email) => {
         const user = { name, email };
         fetch('http://localhost:5000/users', {
@@ -46,9 +53,8 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                navigate(from, { replace: true });
-                // setCreatedUserEmail(email)
+                // console.log(data);
+                setCreatedUserEmail(email)
             })
     }
 
