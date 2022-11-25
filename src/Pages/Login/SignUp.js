@@ -8,6 +8,7 @@ import SocialLogin from './SocialLogin';
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [signUpError, setSignUpError] = useState('');
 
     const navigate = useNavigate()
@@ -21,7 +22,7 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 toast.success('User created successfully');
-                navigate(from, { replace: true });
+                saveUser( data.name, data.email)
 
                 //update user profile
                 updateUserProfile(data.name)
@@ -31,6 +32,23 @@ const SignUp = () => {
             .catch(error => {
                 console.log(error);
                 setSignUpError(error.message)
+            })
+    }
+
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate(from, { replace: true });
+                // setCreatedUserEmail(email)
             })
     }
 
@@ -80,7 +98,7 @@ const SignUp = () => {
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm bg-gray-500 text-white">Sign in</button>
                 </form>
-                
+
                 <div className="divider">OR</div>
 
                 <div className='flex justify-center'>
