@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
@@ -16,10 +17,25 @@ const AddProduct = () => {
         }
     });
 
-    const handleAddDoctor = data =>{
+    const handleAddDoctor = data => {
         console.log(data);
+        // save products information to the database
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                toast.success('Product added successfully');
+                navigate('/dashboard/myProduct')
+            })
     }
-    
+
     return (
         <div className='w-96 p-7'>
             <h2 className='text-4xl'>Add Product</h2>
