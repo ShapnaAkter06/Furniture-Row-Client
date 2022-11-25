@@ -17,7 +17,7 @@ const AddProduct = () => {
         }
     });
 
-    const handleAddDoctor = data => {
+    const handleAddProduct = data => {
         console.log(data);
         // save products information to the database
         fetch('http://localhost:5000/products', {
@@ -39,7 +39,7 @@ const AddProduct = () => {
     return (
         <div className='w-96 p-7'>
             <h2 className='text-4xl'>Add Product</h2>
-            <form onSubmit={handleSubmit(handleAddDoctor)}>
+            <form onSubmit={handleSubmit(handleAddProduct)}>
 
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
