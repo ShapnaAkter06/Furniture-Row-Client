@@ -20,36 +20,38 @@ const MyOrders = () => {
     })
 
     return (
-        <div>
-            <h3 className='text-3xl mb-5'>My Orders</h3>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Buyer</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Image</th>
-                            <th>Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            bookings.map((booking, i) =>
-                                <tr key={booking._id}>
-                                    <th>{i + 1}</th>
-                                    <th>{user.email}</th>
-                                    <td>{booking.product}</td>
-                                    <td>{booking.productPrice}</td>
-                                    <td>Blue</td>
-                                    <button className='btn btn-primary font-bold'>Pay</button>
-                                </tr>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+        <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+            <h2 className="text-xl font-semibold">My products {bookings?.length}</h2>
+            <ul className="flex flex-col divide-y divide-gray-700">
+                {
+                    bookings?.map(booking => <li key={booking._id} className="flex flex-col py-6 sm:flex-row sm:justify-between">
+                        <div className="flex w-full space-x-2 sm:space-x-4">
+                            <img className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500" alt="" />
+                            <div className="flex flex-col justify-between w-full pb-4">
+                                <div className="flex justify-between w-full pb-2 space-x-2">
+                                    <div className="space-y-1">
+                                        <h3 className="text-lg font-semibold leading-snug sm:pr-8">
+                                            Product Name: {booking.product}</h3>
+                                        <p className="text-sm dark:text-gray-400">Product price: {booking.productPrice}</p>
+                                    </div>
+                                    <div className="text-right">
+                                        <p className="text-lg font-semibold">{user?.email}</p>
+                                        <p className="text-sm dark:text-gray-600">Location: {booking.location}</p>
+                                    </div>
+                                </div>
+                                <div className="flex text-sm divide-x">
+                                    <button
+                                        htmlFor="deleteProduct"
+                                        type="button"
+                                        className="btn btn-primary btn-sm">
+                                        <span>Pay</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>)
+                }
+            </ul>
         </div>
     );
 };
