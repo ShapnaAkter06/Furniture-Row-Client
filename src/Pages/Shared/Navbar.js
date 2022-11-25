@@ -51,7 +51,7 @@ const Navbar = () => {
             <select className="select select-primary mx-2">
                 <option disabled defaultValue={true}>User</option>
                 <option>User</option>
-                <option>All Seller</option>
+                <option>Seller</option>
             </select>
             <label htmlFor="dashboardDrawer" className="btn btn-primary mx-2 drawer-button lg:hidden">
                 <FaEllipsisV></FaEllipsisV>
