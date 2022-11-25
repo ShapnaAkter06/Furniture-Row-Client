@@ -17,16 +17,6 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='dashboard'>Dashboard</Link></li>
-        <li tabIndex={0}>
-            <Link>
-                Select
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-            </Link>
-            <ul className="p-2 bg-base-100">
-                <li><Link>Seller</Link></li>
-                <li><Link>User</Link></li>
-            </ul>
-        </li>
     </>
 
     return (
@@ -58,6 +48,11 @@ const Navbar = () => {
                         </Link>
                 }
             </div>
+            <select className="select select-primary mx-2">
+                <option disabled defaultValue={true}>User</option>
+                <option>User</option>
+                <option>All Seller</option>
+            </select>
             <label htmlFor="dashboardDrawer" className="btn btn-primary mx-2 drawer-button lg:hidden">
                 <FaEllipsisV></FaEllipsisV>
             </label>
