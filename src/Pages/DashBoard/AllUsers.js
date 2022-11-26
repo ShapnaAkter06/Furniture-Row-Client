@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import toast from 'react-hot-toast';
+import Spinner from '../../Components/Spinner/Spinner';
 
 const AllUsers = () => {
-
-    const { data: users = [] } = useQuery({
+    //load all user
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users')
@@ -11,7 +12,29 @@ const AllUsers = () => {
             return data;
         }
     })
-    console.log(users);
+
+    // delete user
+    const handleDeleteUser = user => {
+        fetch(`http://localhost:5000/users/${user._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch()
+                    toast.success('Successfully deleted')
+                }
+            })
+    }
+
+    if(isLoading){
+        return <Spinner></Spinner>
+    }
+
+    
     return (
         <div>
             <h2 className="text-3xl mb-5">All Buyers And Sellers</h2>
@@ -23,7 +46,6 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Report</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -35,8 +57,7 @@ const AllUsers = () => {
                                     <td>{user?.name}</td>
                                     <td>{user?.email}</td>
                                     <td>{user?.role}</td>
-                                    <td></td>
-                                    <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                    <td><button onClick={()=> handleDeleteUser(user)} className='btn btn-xs btn-error'>Delete</button></td>
                                 </tr>)
                         }
                     </tbody>

@@ -15,7 +15,7 @@ const Categories = () => {
         <div className='flex flex-col justify-center items-center'>
             <>
                 <div className='text-center my-12'>
-                    <h2 className='font-bold text-2xl text-teal-700'>Second hand product category section</h2>
+                    <h2 className='font-bold text-2xl text-teal-700'>Product category</h2>
                     <p className='text-sm font-semibold'>See what's in stock in each of these categories.</p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
