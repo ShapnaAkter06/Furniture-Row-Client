@@ -18,7 +18,6 @@ const BookingModal = ({ bookFurniture, setBookFurniture }) => {
             image,
             product: title,
             productPrice: resale_Price,
-            name,
             email,
             phone,
             location,
