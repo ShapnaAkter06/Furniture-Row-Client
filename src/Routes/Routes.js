@@ -14,6 +14,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import ErrorPage from "../Pages/Shared/ErrorPage";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -55,7 +56,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allUsers',
-                element: <AllUsers></AllUsers> ,
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute> ,
             },
             {
                 path: '/dashboard/addProduct',

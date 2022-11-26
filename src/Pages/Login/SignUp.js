@@ -105,9 +105,9 @@ const SignUp = () => {
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block dark:text-gray-400">Are you Seller?</label>
                     <select  {...register("role")} className="select select-primary mx-2">
-                        <option disabled defaultValue={true}>Buyer</option>
-                        <option>Buyer</option>
-                        <option>Seller</option>
+                        <option disabled defaultValue={true}>buyer</option>
+                        <option>buyer</option>
+                        <option>seller</option>
                     </select>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm bg-gray-500 text-white">Sign in</button>
