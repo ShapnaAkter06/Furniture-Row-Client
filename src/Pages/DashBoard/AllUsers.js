@@ -15,26 +15,29 @@ const AllUsers = () => {
 
     // delete user
     const handleDeleteUser = user => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
-            method: 'DELETE',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    refetch()
-                    toast.success('Successfully deleted')
+        const proceed = window.confirm("Are you sure want to delete this user?");
+        if (proceed) {
+            fetch(`http://localhost:5000/users/${user._id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        refetch()
+                        toast.success('Successfully deleted')
+                    }
+                })
+        }
     }
 
-    if(isLoading){
+    if (isLoading) {
         return <Spinner></Spinner>
     }
 
-    
+
     return (
         <div>
             <h2 className="text-3xl mb-5">All Buyers And Sellers</h2>
@@ -57,7 +60,7 @@ const AllUsers = () => {
                                     <td>{user?.name}</td>
                                     <td>{user?.email}</td>
                                     <td>{user?.role}</td>
-                                    <td><button onClick={()=> handleDeleteUser(user)} className='btn btn-xs btn-error'>Delete</button></td>
+                                    <td><button onClick={() => handleDeleteUser(user)} className='btn btn-xs btn-error'>Delete</button></td>
                                 </tr>)
                         }
                     </tbody>
