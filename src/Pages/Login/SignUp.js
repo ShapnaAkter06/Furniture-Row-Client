@@ -28,7 +28,7 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 toast.success('User created successfully');
-                saveUser( data.name, data.email)
+                saveUser(data.name, data.email, data.role)
 
                 //update user profile
                 updateUserProfile(data.name)
@@ -42,8 +42,8 @@ const SignUp = () => {
     }
 
     //save user in DB
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -101,6 +101,14 @@ const SignUp = () => {
                                 signUpError && <p className='text-red-500 font-semibold'>{signUpError}</p>
                             }
                         </div>
+                    </div>
+                    <div className="space-y-1 text-sm">
+                        <label htmlFor="password" className="block dark:text-gray-400">Are you Seller?</label>
+                    <select  {...register("role")} className="select select-primary mx-2">
+                        <option disabled defaultValue={true}>Buyer</option>
+                        <option>Buyer</option>
+                        <option>Seller</option>
+                    </select>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm bg-gray-500 text-white">Sign in</button>
                 </form>
