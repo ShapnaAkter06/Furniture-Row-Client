@@ -16,7 +16,6 @@ const Navbar = () => {
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='dashboard'>Dashboard</Link></li>
     </>
 
     return (
@@ -40,19 +39,18 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user?.uid ?
-                        <Link to='/login'>
-                            <button onClick={handleLogOut} className='btn btn-outline'>Logout</button></Link>
+                        <>
+                            <Link to='dashboard' className='mr-5'>Dashboard</Link>
+                            <Link to='/login'>
+                                <button onClick={handleLogOut} className='btn btn-outline'>Logout</button>
+                            </Link>
+                        </>
                         :
                         <Link to='/login'>
                             <button className='btn btn-outline'>Login</button>
                         </Link>
                 }
             </div>
-            <select className="select select-primary mx-2">
-                <option disabled defaultValue={true}>User</option>
-                <option>User</option>
-                <option>Seller</option>
-            </select>
             <label htmlFor="dashboardDrawer" className="btn btn-primary mx-2 drawer-button lg:hidden">
                 <FaEllipsisV></FaEllipsisV>
             </label>
