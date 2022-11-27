@@ -16,6 +16,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import ErrorPage from "../Pages/Shared/ErrorPage";
 import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
 export const router = createBrowserRouter([
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/allCategories/:id',
-                element: <CategoryDetails></CategoryDetails>,
+                element: <PrivateRoute></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/allCategories/${params.id}`)
             },
         ]
