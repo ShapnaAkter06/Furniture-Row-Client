@@ -3,7 +3,7 @@ import banner from '../../assets/banner.jpg'
 
 const Banner = () => {
     return (
-        <div className="hero min-h-screen flex justify-start" style={{ backgroundImage: `url(${banner})` }}>
+        <div className="hero min-h-screen flex justify-center lg:justify-start" style={{ backgroundImage: `url(${banner})` }}>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold bg-black text-white p-6">Black Friday</h1>
