@@ -11,7 +11,7 @@ const AddProduct = () => {
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categories')
+            const res = await fetch('https://assignment-12-server-jet.vercel.app/categories')
             const data = res.json();
             return data;
         }
@@ -20,7 +20,7 @@ const AddProduct = () => {
     const handleAddProduct = data => {
         console.log(data);
         // save products information to the database
-        fetch('http://localhost:5000/products', {
+        fetch('https://assignment-12-server-jet.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

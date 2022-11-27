@@ -24,7 +24,7 @@ const SocialLogin = () => {
                     email: user.email,
                     role: 'buyer'
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://assignment-12-server-jet.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

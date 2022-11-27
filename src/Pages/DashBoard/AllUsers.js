@@ -7,7 +7,7 @@ const AllUsers = () => {
     const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users')
+            const res = await fetch('https://assignment-12-server-jet.vercel.app/users')
             const data = await res.json();
             return data;
         }
@@ -17,7 +17,7 @@ const AllUsers = () => {
     const handleDeleteUser = user => {
         const proceed = window.confirm("Are you sure want to delete this user?");
         if (proceed) {
-            fetch(`http://localhost:5000/users/${user._id}`, {
+            fetch(`https://assignment-12-server-jet.vercel.app/users/${user._id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +40,7 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h2 className="text-3xl mb-5">All Buyers And Sellers</h2>
+            <h2 className="text-3xl mb-5 ml-5">All Buyers And Sellers</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
