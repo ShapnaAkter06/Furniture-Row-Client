@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import Spinner from '../../Components/Spinner/Spinner';
 import BookingModal from '../BookingModal/BookingModal';
 import SingleCard from './SingleCard';
 
@@ -7,6 +8,11 @@ const CategoryDetails = () => {
     const details = useLoaderData();
     const [bookFurniture, setBookFurniture] = useState(null);
     // console.log(details);
+
+    const navigation = useNavigation();
+    if(navigation.state === 'loading') {
+        return <Spinner></Spinner>
+    }
 
     return (
         <div>
