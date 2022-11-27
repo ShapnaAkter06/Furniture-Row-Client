@@ -4,12 +4,9 @@ import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import AddProduct from "../Pages/DashBoard/AddProduct";
 import AllUsers from "../Pages/DashBoard/AllUsers";
-
-import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyOrders from "../Pages/DashBoard/MyOrders";
 import MyProducts from "../Pages/DashBoard/MyProducts";
 import Payment from "../Pages/DashBoard/Payment";
-import CategoryCard from "../Pages/Home/CategoryCard";
 import CategoryDetails from "../Pages/Home/CategoryDetails";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -43,7 +40,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/allCategories/:id',
-                element: <PrivateRoute></PrivateRoute>,
+                element: <PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/allCategories/${params.id}`)
             },
         ]
