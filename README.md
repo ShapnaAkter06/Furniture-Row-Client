@@ -6,6 +6,6 @@
 - <p>After purchase products users can pay the bill by card.</p>
 - <p>There is an admin role who can manage all buyers and sellers. If he wants he can delete the buyers and sellers, also he can verified the sellers</p>
 
-- adminEmail: <my zara@gmail.com>
+- adminEmail: zara@gmail.com
 
-- adminPassword: <my 123456>
+- adminPassword: 123456
