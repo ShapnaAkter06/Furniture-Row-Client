@@ -5,10 +5,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import useToken from '../../hooks/useToken';
 import SocialLogin from './SocialLogin';
+import login from '../../assets/login.gif'
+import Spinner from '../../Components/Spinner/Spinner';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn, loading } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail);
@@ -17,7 +19,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    if(token){
+    if (token) {
         navigate(from, { replace: true });
     }
 
@@ -36,8 +38,15 @@ const Login = () => {
             })
     }
 
+    if(loading){
+        return <Spinner></Spinner>
+    }
+
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex flex-col justify-center lg:flex-row lg:justify-center items-center'>
+            <div className="text-center lg:w-2/5 w-96 mt-12 lg:mt-0">
+                <img src={login} alt="" />
+            </div>
 
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 shadow-2xl m-12">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
@@ -77,7 +86,7 @@ const Login = () => {
                 </form>
 
                 <div className="divider">OR</div>
-                
+
                 <div className='flex justify-center'>
                     <SocialLogin></SocialLogin>
                 </div>
