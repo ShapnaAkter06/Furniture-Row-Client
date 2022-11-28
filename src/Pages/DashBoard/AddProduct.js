@@ -125,7 +125,9 @@ const AddProduct = () => {
                         <span className="label-text">Category</span>
                     </label>
                     <select
-                        {...register("category")}
+                        {...register("category", {
+                            required: "category must be provided",
+                        })}
                         className="select input-bordered w-full max-w-xs">
                         {
                             categories?.map(category => <option
@@ -134,10 +136,11 @@ const AddProduct = () => {
                             >{category.name}</option>)
                         }
                     </select>
+                    {errors.category && <p className='text-red-700 mt-2' >{errors.category?.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Status</span>
+                        <span className="label-text">available or sold?</span>
                     </label>
                     <input type="text"
                         {...register("status", {
@@ -145,6 +148,18 @@ const AddProduct = () => {
                         })}
                         className="input input-bordered w-full max-w-xs" />
                     {errors.status && <p className='text-red-700 mt-2' >{errors.status?.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Photo</span>
+                    </label>
+                    <input type="photoURL"
+                        {...register("image", {
+                            required: "Photo is required",
+                        })}
+                        className="input input-bordered w-full max-w-xs" />
+                    {errors.img && <p className='text-red-700 mt-2' >{errors.img?.message}</p>}
+
                 </div>
                 <input className='btn btn-accent w-full mt-4' type="submit" value="Add a Product" />
             </form>

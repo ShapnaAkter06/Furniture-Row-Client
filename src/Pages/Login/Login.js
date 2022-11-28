@@ -6,11 +6,10 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 import useToken from '../../hooks/useToken';
 import SocialLogin from './SocialLogin';
 import login from '../../assets/login.gif'
-import Spinner from '../../Components/Spinner/Spinner';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn, loading } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail);
@@ -36,10 +35,6 @@ const Login = () => {
                 console.log(error)
                 setLoginError(error.message)
             })
-    }
-
-    if(loading){
-        return <Spinner></Spinner>
     }
 
     return (

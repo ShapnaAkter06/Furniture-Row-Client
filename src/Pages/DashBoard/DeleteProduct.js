@@ -11,7 +11,7 @@ const DeleteProduct = ({ title, message, closeModal, modalData, successAction, s
                     <div className="modal-action">
                         <label
                             onClick={() => successAction(modalData)}
-                            htmlFor="ConfirmationModal"
+                            htmlFor="deleteProduct"
                             className="btn btn-primary">{successButtonName}</label>
                         <button onClick={closeModal} className='btn btn-outline'>Cancel</button>
                     </div>
