@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Spinner from '../../Components/Spinner/Spinner';
 
 const Advertisement = () => {
     const { data: products, isLoading } = useQuery({
@@ -19,6 +20,10 @@ const Advertisement = () => {
             }
         }
     })
+
+    if(isLoading){
+        return <Spinner></Spinner>
+    }
 
     return (
         <>

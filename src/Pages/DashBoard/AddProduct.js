@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import productImg from '../../assets/productImg.jpg'
 
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -37,10 +38,10 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='w-96 p-7'>
+        <div className='bg-no-repeat bg-cover bg-center' style={{ backgroundImage: `url(${productImg})` }}>
+            <div className='w-96 p-7 mx-auto bg-gray-400 font-bold' >
             <h2 className='text-4xl'>Add Product</h2>
             <form onSubmit={handleSubmit(handleAddProduct)}>
-
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Product Name</span>
@@ -143,7 +144,7 @@ const AddProduct = () => {
                         <span className="label-text">Status</span>
                     </label>
                     <select  {...register("status")} className="select input-bordered w-full max-w-xs">
-                        <option selected defaultValue={true}>false</option>
+                        <option defaultValue={true}>false</option>
                     </select>
                     {errors.status && <p className='text-red-700 mt-2' >{errors.status?.message}</p>}
                 </div>
@@ -161,6 +162,7 @@ const AddProduct = () => {
                 </div>
                 <input className='btn btn-accent w-full mt-4' type="submit" value="Add a Product" />
             </form>
+        </div>
         </div>
     );
 };
