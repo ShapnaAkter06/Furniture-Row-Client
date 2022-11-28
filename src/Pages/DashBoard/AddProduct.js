@@ -143,8 +143,7 @@ const AddProduct = () => {
                         <span className="label-text">Status</span>
                     </label>
                     <select  {...register("status")} className="select input-bordered w-full max-w-xs">
-                        <option selected defaultValue={true}>available</option>
-                        <option>sold</option>
+                        <option selected defaultValue={true}>false</option>
                     </select>
                     {errors.status && <p className='text-red-700 mt-2' >{errors.status?.message}</p>}
                 </div>

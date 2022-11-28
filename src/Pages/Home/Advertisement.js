@@ -24,7 +24,7 @@ const Advertisement = () => {
         <>
             <div className='text-center my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
                 {
-                    products?.map(product => product.status === 'available' &&
+                    products?.map(product => product.status === true &&
                             <div key={product._id} className="card w-96 bg-base-100 shadow-xl">
                                 <figure>
                                     <img src={product.image} alt="" className="rounded-xl" />
@@ -33,7 +33,6 @@ const Advertisement = () => {
                                 <h2 className='font-bold text-2xl text-teal-700'>Advertise Item </h2>
                                     <h2 className="card-title">{product.product}</h2>
                                     <p>Price: {product.price}</p>
-                                    <p>Status: {product.status} </p>
                                 </div>
                             </div>
                     )
