@@ -140,13 +140,12 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">available or sold?</span>
+                        <span className="label-text">Status</span>
                     </label>
-                    <input type="text"
-                        {...register("status", {
-                            required: "Status must be provided",
-                        })}
-                        className="input input-bordered w-full max-w-xs" />
+                    <select  {...register("status")} className="select input-bordered w-full max-w-xs">
+                        <option selected defaultValue={true}>available</option>
+                        <option>sold</option>
+                    </select>
                     {errors.status && <p className='text-red-700 mt-2' >{errors.status?.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
