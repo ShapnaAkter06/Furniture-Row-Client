@@ -8,7 +8,7 @@ import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, setLoading } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
     const [signUpError, setSignUpError] = useState('');
@@ -19,13 +19,13 @@ const SignUp = () => {
         navigate('/');
     }
 
-
     const handleSignUp = data => {
         setSignUpError('')
         //create user
         createUser(data.email, data.password)
             .then(result => {
                 toast.success('User created successfully');
+                setLoading(false)
                 saveUser(data.name, data.email, data.role)
 
                 //update user profile
