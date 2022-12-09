@@ -50,10 +50,10 @@ const Login = () => {
                     onSubmit={handleSubmit(handleLogin)}
                 >
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="username" className="block dark:text-gray-400">Email</label>
+                        <label htmlFor="email" className="block dark:text-gray-400">Email</label>
                         <input
                             type="email"
-                            placeholder="Username"
+                            placeholder="Email"
                             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
                             {...register("email", { required: "Email Address is required" })}
                         />
