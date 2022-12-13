@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
-import { FaEllipsisV } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -16,10 +15,19 @@ const Navbar = () => {
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
+        {
+            user?.uid ?
+                <>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
+                    <li><button className='font-bold' onClick={handleLogOut}>Logout</button></li>
+                </>
+                :
+                <li className='font-bold'><Link to='/login'>Login</Link></li>
+        }
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 flex justify-between">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,23 +44,8 @@ const Navbar = () => {
                     {menuItem}
                 </ul>
             </div>
-            <div className="navbar-end">
-                {
-                    user?.uid ?
-                        <>
-                            <Link to='dashboard' className='mr-5'>Dashboard</Link>
-                            <Link to='/login'>
-                                <button onClick={handleLogOut} className='btn btn-outline'>Logout</button>
-                            </Link>
-                        </>
-                        :
-                        <Link to='/login'>
-                            <button className='btn btn-outline'>Login</button>
-                        </Link>
-                }
-            </div>
-            <label htmlFor="dashboardDrawer" className="btn btn-primary mx-2 drawer-button lg:hidden">
-                <FaEllipsisV></FaEllipsisV>
+            <label htmlFor="dashboardDrawer" tabIndex={1} className="btn btn-ghost lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
         </div>
     );
