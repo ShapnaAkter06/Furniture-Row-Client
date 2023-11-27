@@ -13,7 +13,7 @@ const Payment = () => {
 
     if(navigation.state === 'loading'){
         return <Spinner></Spinner>
-    }
+    }      
     return (
         <div className='ml-5'>
             <h3 className='text-3xl'>Payment for {booking.product} </h3>

@@ -8,10 +8,10 @@ import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [signUpError, setSignUpError] = useState('');
     const { createUser, updateUserProfile, setLoading } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
-    const [signUpError, setSignUpError] = useState('');
 
     const navigate = useNavigate()
 
