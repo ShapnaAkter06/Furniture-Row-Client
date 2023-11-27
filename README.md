@@ -1,5 +1,5 @@
 ## Furniture Row
-## https://assignment-12-de85a.web.app
+## https://gorgeous-entremet-3c35e9.netlify.app/
 - <p>This website is created based on sale and purchase secondhand furniture. Here a buyer can purchase products and a seller can add a product for sale.</p>
 - <p>If buyers and sellers wants to buy and sale product they must have login otherwise they will not able to buy and sale products.</p>
 - <p>If the users creates a seller account, he will choose the seller option. Otherwise, a user will have the buyer option selected by default. And google users will be considered as buyers.</p>
