@@ -16,7 +16,7 @@ const Advertisement = () => {
                 return data;
             }
             catch (error) {
-
+                console.log(error);
             }
         }
     })
@@ -24,14 +24,15 @@ const Advertisement = () => {
     if (isLoading) {
         return <Spinner></Spinner>
     }
+    console.log(products);
 
     return (
         <>
             <div className='text-center my-12'>
-                <h2 className='font-bold text-2xl text-[#67AD5C]'>Advertisement Products</h2>
+                <h2 className='font-bold text-2xl text-[#67AD5C] mb-2'>Advertisement Products</h2>
                 <p className='text-sm font-semibold'>Advertise going on</p>
             </div>
-            <div className='text-center my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
+            <div className='text-center my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4'>
                 {
                     products?.map(product => product.status === true &&
                         <div key={product._id} className="card">
@@ -41,6 +42,10 @@ const Advertisement = () => {
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">{product.product}</h2>
                                 <p>Price: {product.price}</p>
+                                <p>Year of Purchase: {product.year}</p>
+                                <p>Condition: {product.condition}</p>
+                                <p>Location: {product.location}</p>
+                                <p>Contact: {product.phone}</p>
                             </div>
                         </div>
                     )

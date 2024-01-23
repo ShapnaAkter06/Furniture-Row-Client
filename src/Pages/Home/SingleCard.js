@@ -26,7 +26,7 @@ const SingleCard = ({ detail, setBookFurniture }) => {
                     <label
                         onClick={() => setBookFurniture(detail)}
                         htmlFor="bookingModal"
-                        className="btn btn-success">
+                        className="btn bg-[#67AD5C]">
                         Book Now
                     </label>
                 </div>

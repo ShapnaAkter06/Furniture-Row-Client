@@ -108,7 +108,7 @@ const SignUp = () => {
                         <option>seller</option>
                     </select>
                     </div>
-                    <button className="block w-full p-3 text-center rounded-sm bg-gray-500 text-white">Sign in</button>
+                    <button className="block w-full p-3 text-center rounded-sm bg-[#67AD5C] text-white">Sign in</button>
                 </form>
 
                 <div className="divider">OR</div>

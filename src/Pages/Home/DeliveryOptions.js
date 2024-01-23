@@ -29,8 +29,8 @@ const DeliveryOptions = () => {
     return (
         <div>
             <div className='text-center my-12'>
-                <h2 className='font-bold text-2xl text-[#67AD5C]'>We offer three delivery options for your convenience!</h2>
-                <p className='text-xl font-semibold'>Select from these delivery options in cart.</p>
+                <h2 className='font-bold text-2xl text-[#67AD5C] mb-2'>We offer three delivery options for your convenience!</h2>
+                <p className='text-sm font-semibold'>Select from these delivery options in cart.</p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-green-100 px-4 mb-12'>
                 {
