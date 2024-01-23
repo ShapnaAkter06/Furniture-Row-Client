@@ -46,7 +46,7 @@ const MyOrders = () => {
                                         <Link to={`/dashboard/payment/${booking._id}`}>
                                             <button
                                                 type="button"
-                                                className="btn btn-primary btn-sm">
+                                                className="btn bg-[#67AD5C] btn-sm">
                                                 Pay
                                             </button>
                                         </Link>

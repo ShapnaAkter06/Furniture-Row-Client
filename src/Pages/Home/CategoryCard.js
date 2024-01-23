@@ -5,14 +5,14 @@ const CategoryCard = ({ category }) => {
     const { name, image, category_id } = category;
     // console.log(category); 
     return (
-        <div className="card lg:w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
+        <div className="card bg-base-100 shadow-xl">
+            <figure className="p-4">
                 <img src={image} alt="" className="rounded-xl" />
             </figure>
-            <div className="card-body items-center text-center">
-                <div className="card-actions">
+            <div className="flex justify-center text-center">
+                <div className="mb-4">
                     <Link to={`/allCategories/${category_id}`}>
-                        <button className="btn btn-primary block w-full">{name}</button>
+                        <button className="btn btn-sm bg-[#67AD5C] block w-full">{name}</button>
                     </Link>
                 </div>
             </div>
